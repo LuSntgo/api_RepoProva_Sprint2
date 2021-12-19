@@ -4,7 +4,7 @@ import CourseEntity from './CourseEntity';
 
 
 @Entity("classrooms")
-export default class User {
+export default class ClassRoomEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
@@ -14,7 +14,7 @@ export default class User {
   @Column()
   semester: number;
 
-  @ManyToOne(() => ProfessorEntity, professor => professor.id)
+  @ManyToOne(() => ProfessorEntity, professor => professor.id, { eager: true})
   @JoinColumn({ name: 'professor_id'})
   professor: ProfessorEntity
 

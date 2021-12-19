@@ -2,7 +2,7 @@ import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, JoinColumn, OneToMan
 import ClassroomEntity from './ClassroomEntity';
 
 @Entity("professors")
-export default class User {
+export default class ProfessorEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
