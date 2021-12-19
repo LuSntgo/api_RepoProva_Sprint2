@@ -5,14 +5,13 @@ import cors from "cors";
 import "reflect-metadata";
 
 import connectDatabase from "./database";
-
-import * as userController from "./controllers/userConroller";
+import { setupRoute } from "./config/route";
 
 const app = express();
 app.use(cors());
 app.use(express.json());
+setupRoute(app);
 
-app.get("/users", userController.getUsers);
 
 export async function init () {
   await connectDatabase();
