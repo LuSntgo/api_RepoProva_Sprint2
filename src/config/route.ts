@@ -9,7 +9,6 @@ export const setupRoute = (app: Express): void => {
   app.use(`/${PREFIX_API}`, router);
   fg.sync(ROUTES_DIR)
     .map(async (routeFile) => {
-        console.log(routeFile)
       const route = (await import(`../../${routeFile}`)).default;
       route(router);
       console.log('All routes: ', router.stack.map(r => ({
