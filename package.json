@@ -8,7 +8,9 @@
     "build": "NODE_ENV=production npx tsc --outDir dist",
     "start": "NODE_ENV=production NODE_TLS_REJECT_UNAUTHORIZED=0 node dist/server.js",
     "dev": "NODE_ENV=development npx nodemon --watch \"src/**\" --ext \"ts,json\" --exec \"ts-node src/server.ts\"",
-    "typeorm": "ts-node ./node_modules/typeorm/cli"
+    "typeorm": "ts-node ./node_modules/typeorm/cli",
+    "typeorm:run:dev": "NODE_ENV=development DATABASE_URL=postgres://postgres:123456@localhost:5433/repoprovas npm run typeorm migration:run",
+    "typeorm:run:prod": "NODE_ENV=production DATABASE_URL=postgres://tqxzqhyotnmush:d94782fcba8877d19212211d6368657b2b7b2c785932a776065d8ae65e912961@ec2-52-201-106-191.compute-1.amazonaws.com:5432/dci8i515216pe9 npm run typeorm migration:run"
   },
   "keywords": [],
   "author": "",
