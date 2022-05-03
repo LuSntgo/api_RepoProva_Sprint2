@@ -5,5 +5,11 @@ import { ensureAuthenticatedMiddleware } from "../middlewares/ensureAuthenticate
 const testRouter = Router();
 
 testRouter.get("/tests", ensureAuthenticatedMiddleware, testController.find);
+testRouter.post("/tests", ensureAuthenticatedMiddleware, testController.add);
+testRouter.patch(
+  "/tests/:id",
+  ensureAuthenticatedMiddleware,
+  testController.updateViews
+);
 
 export default testRouter;

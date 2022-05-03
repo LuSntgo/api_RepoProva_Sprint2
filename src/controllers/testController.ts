@@ -12,6 +12,30 @@ async function find(req: Request, res: Response) {
   res.send({ tests });
 }
 
+async function add(req: Request, res: Response) {
+  const { name, pdfUrl, categoryName, disciplineName, teacherName } = req.body;
+
+  await testService.add(
+    name,
+    pdfUrl,
+    categoryName,
+    disciplineName,
+    teacherName
+  );
+
+  res.sendStatus(201);
+}
+
+async function updateViews(req: Request, res: Response) {
+  const { id } = req.params;
+
+  await testService.updateViews(parseInt(id));
+
+  res.sendStatus(200);
+}
+
 export default {
   find,
+  add,
+  updateViews,
 };
